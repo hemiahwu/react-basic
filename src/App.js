@@ -66,7 +66,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color:"white",
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -87,43 +88,28 @@ class App extends Component {
                 count={person.count}/>
             })
           }
-          {/* <Person
-            changed={this.nameChangedHandler} 
-            name={this.state.persons[0].name} 
-            count={this.state.persons[0].count}/>
-          <Person
-            myclick={this.switchNameHandler.bind(this,"米修missu")} 
-            name={this.state.persons[1].name} 
-            count={this.state.persons[1].count}/>
-          <Person 
-            name={this.state.persons[2].name} 
-            count={this.state.persons[2].count}>非常感谢大家支持我们的课程!</Person> */}
         </div> 
       )
+
+      style.backgroundColor = "red";
+    }
+
+    // const classes = ["red","bold"].join(" "); 
+    const classes = []; 
+
+    if(this.state.persons.length <= 2){
+      classes.push("red");  // class = ['red']
+    }
+
+    if(this.state.persons.length <= 1){
+      classes.push("bold");  // class = ['red','bold']
     }
 
     return (
       <div className="App">
         <h1>Hello World</h1>
-        <p>Hi, React App</p>
-        {/* <button onClick={() => this.switchNameHandler("米修")}>更改状态值</button> */}
-        {/* <button style={style} onClick={this.switchNameHandler.bind(this,"missu")}>更改状态值</button> */}
+        <p className={classes.join(" ")}>Hi, React App</p>
         <button style={style} onClick={this.togglePersonsHandler}>内容切换</button>  {persons}   
-        {/* { this.state.showPersons ?
-          <div>
-            <Person
-              changed={this.nameChangedHandler} 
-              name={this.state.persons[0].name} 
-              count={this.state.persons[0].count}/>
-            <Person
-              myclick={this.switchNameHandler.bind(this,"米修missu")} 
-              name={this.state.persons[1].name} 
-              count={this.state.persons[1].count}/>
-            <Person 
-              name={this.state.persons[2].name} 
-              count={this.state.persons[2].count}>非常感谢大家支持我们的课程!</Person>
-          </div> : null
-        } */}
       </div>
     );
 
