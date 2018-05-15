@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
   /** 
@@ -76,20 +76,27 @@ class App extends Component {
 
     let persons = null;
     if (this.state.showPersons) {
-      persons = (
-        <div>
-          {
-            this.state.persons.map((person,index) => {
-              return <Person
-                changed={(event) => this.nameChangedHandler(event,person.id)}
-                myclick={() => this.deletePersonHandler(index)}
-                key={person.id} 
-                name={person.name} 
-                count={person.count}/>
-            })
-          }
-        </div> 
-      )
+      persons = <Persons 
+                    persons={this.state.persons}
+                    clicked={this.deletePersonHandler}
+                    changed={this.nameChangedHandler}
+                  />
+      
+      
+      // (
+      //   <div>
+      //     {
+      //       this.state.persons.map((person,index) => {
+      //         return <Person
+      //           changed={(event) => this.nameChangedHandler(event,person.id)}
+      //           myclick={() => this.deletePersonHandler(index)}
+      //           key={person.id} 
+      //           name={person.name} 
+      //           count={person.count}/>
+      //       })
+      //     }
+      //   </div> 
+      // )
 
       style.backgroundColor = "red";
     }
