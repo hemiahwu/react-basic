@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Persons from '../components/Persons/Persons';
+import MyHeader from '../components/Header/Header';
 
 class App extends Component {
   /** 
@@ -65,15 +66,7 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color:"white",
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
-
+   
     let persons = null;
     if (this.state.showPersons) {
       persons = <Persons 
@@ -81,42 +74,21 @@ class App extends Component {
                     clicked={this.deletePersonHandler}
                     changed={this.nameChangedHandler}
                   />
+
       
-      
-      // (
-      //   <div>
-      //     {
-      //       this.state.persons.map((person,index) => {
-      //         return <Person
-      //           changed={(event) => this.nameChangedHandler(event,person.id)}
-      //           myclick={() => this.deletePersonHandler(index)}
-      //           key={person.id} 
-      //           name={person.name} 
-      //           count={person.count}/>
-      //       })
-      //     }
-      //   </div> 
-      // )
-
-      style.backgroundColor = "red";
     }
 
-    // const classes = ["red","bold"].join(" "); 
-    const classes = []; 
-
-    if(this.state.persons.length <= 2){
-      classes.push("red");  // class = ['red']
-    }
-
-    if(this.state.persons.length <= 1){
-      classes.push("bold");  // class = ['red','bold']
-    }
+    
 
     return (
       <div className="App">
-        <h1>Hello World</h1>
-        <p className={classes.join(" ")}>Hi, React App</p>
-        <button style={style} onClick={this.togglePersonsHandler}>内容切换</button>  {persons}   
+        <MyHeader 
+          persons={this.state.persons}
+          showPersons={this.state.showPersons}
+          clicked={this.togglePersonsHandler}
+        />
+        
+        {persons}   
       </div>
     );
 
