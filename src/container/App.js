@@ -3,6 +3,7 @@ import './App.css';
 import Persons from '../components/Persons/Persons';
 import MyHeader from '../components/Header/Header';
 
+// 有状态组件
 class App extends Component {
   /** 
    * state: 用于改变组件内容状态的值(动态)
@@ -74,15 +75,12 @@ class App extends Component {
                     clicked={this.deletePersonHandler}
                     changed={this.nameChangedHandler}
                   />
-
-      
     }
-
-    
 
     return (
       <div className="App">
-        <MyHeader 
+        <MyHeader
+          appTitle={this.props.title} 
           persons={this.state.persons}
           showPersons={this.state.showPersons}
           clicked={this.togglePersonsHandler}

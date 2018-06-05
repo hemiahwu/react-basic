@@ -27,7 +27,7 @@ const MyHeader = (props) => {
 
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>{props.appTitle}</h1>
       <p className={assignedClasses.join(" ")}>Hi, React App</p>
       <button style={style} onClick={props.clicked}>内容切换</button>  
     </div>
