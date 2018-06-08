@@ -5,18 +5,32 @@ import MyHeader from '../components/Header/Header';
 
 // 有状态组件
 class App extends Component {
-  /** 
-   * state: 用于改变组件内容状态的值(动态)
-   * props: 用于组件通信进行传值
-  */
-  state = {
-    persons:[
-      {id:1,name:"米斯特吴",count:52},
-      {id:2,name:"Henry",count:5},
-      {id:3,name:"Hemiah",count:15}
-    ],
-    otherState:"anything",
-    showPersons:false
+  // constructor
+  constructor(props){
+    super(props);
+    console.log("[App.js] constuctor is running....",props);
+
+    /** 
+     * state: 用于改变组件内容状态的值(动态)
+     * props: 用于组件通信进行传值
+    */
+    this.state = {
+      persons:[
+        {id:1,name:"米斯特吴",count:52},
+        {id:2,name:"Henry",count:5},
+        {id:3,name:"Hemiah",count:15}
+      ],
+      otherState:"anything",
+      showPersons:false
+    }
+  }
+  // componentWillMount
+  componentWillMount(){
+    console.log("[App.js] componentWillMount is running....");
+  }
+  // componentDidMount
+  componentDidMount(){
+    console.log("[App.js] componentDidMount is running....");    
   }
 
   switchNameHandler = (newName) => {
@@ -67,6 +81,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("[App.js] render is running....");
    
     let persons = null;
     if (this.state.showPersons) {

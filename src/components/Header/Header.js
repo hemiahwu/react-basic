@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Header.css';
 
+// 无状态组件
 const MyHeader = (props) => {
   const assignedClasses = []; 
 
